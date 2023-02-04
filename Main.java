@@ -9,17 +9,21 @@ class Main {
     System.out.println(output);
   }
 
-  public static int maxSum(int[] arr, int size) {
+    public static int maxSum(int[] arr, int size) {
     int maxsum = 0;
     int windowsum = 0;
+
     for (int index = 0; index < size; index++) {
       windowsum += arr[index];
       maxsum = windowsum;
     }
-    for (int i = size; i < arr.length - size; i++) {
-      windowsum += arr[i] - arr[i - size];
+    for (int index = size; index < arr.length; index++) {
+
+      windowsum += arr[index]-arr[index - size] ;
       maxsum = Math.max(windowsum, maxsum);
+
     }
+
     return maxsum;
   }
 
